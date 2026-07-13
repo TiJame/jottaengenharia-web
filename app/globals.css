@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-gold: #c9a84c;
+  --color-gold-light: #e2c97e;
+  --color-gold-dark: #9a7a2e;
+  --color-charcoal: #0f0f0f;
+  --color-dark: #161616;
+  --color-card: #1e1e1e;
+  --color-border: #2e2e2e;
+  --color-text-muted: #888888;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #0f0f0f;
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', serif;
+  overflow-x: hidden;
 }
+
+.gradient-gold {
+  background: linear-gradient(135deg, #c9a84c, #e2c97e, #9a7a2e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-dark {
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  transition: all 0.3s ease;
+}
+
+.card-dark:hover {
+  border-color: #c9a84c60;
+  box-shadow: 0 12px 40px #c9a84c12;
+  transform: translateY(-3px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #c9a84c, #9a7a2e);
+  color: #0f0f0f;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #e2c97e, #c9a84c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px #c9a84c40;
+}
+
+.btn-outline-gold {
+  border: 1px solid #c9a84c60;
+  color: #c9a84c;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  border-color: #c9a84c;
+  background: #c9a84c10;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  transition: all 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background: linear-gradient(135deg, #2ee673, #25D366);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px #25D36650;
+}
+
+.section-divider {
+  background: linear-gradient(90deg, transparent, #c9a84c40, transparent);
+  height: 1px;
+  width: 100%;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up 0.7s ease-out forwards; }
